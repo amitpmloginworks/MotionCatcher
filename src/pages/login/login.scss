@@ -1,0 +1,78 @@
+page-login {
+
+  img {
+    height: auto;
+    margin: 34px auto;
+    width: 66%;
+  }
+
+  img {
+    max-width: 15%;
+  }
+
+  @media only screen and (max-width: 500px) {
+    img {
+      max-width: 66%;
+    }
+  }
+
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+
+  ion-item {
+    padding-left: 10px !important;
+    margin-bottom: 10px;
+    background-color: #f6f6f6;
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+
+  .btn {
+    font-size: 15px;
+    height: 2.6em;
+  }
+
+  ion-list {
+    margin: 0;
+  }
+
+  .login-button {
+    width: 100%;
+    border-radius: 0 !important;
+    font-size: 0.9em;
+    border: 1px solid #fff;
+    background-color: #39acdc;
+  }
+
+  loading-modal .container {
+    z-index: -1;
+    transition: z-index 0.2s step-end;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.busy {
+      z-index: 9999;
+      transition: z-index 0.2s step-start;
+
+      .backdrop {
+        opacity: 0.3;
+      }
+    }
+
+    .backdrop {
+      opacity: 0.01;
+      transition: opacity 0.2s;
+    }
+
+    ion-spinner {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

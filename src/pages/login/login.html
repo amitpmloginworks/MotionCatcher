@@ -1,0 +1,48 @@
+<ion-content padding style="background-color: #ECECEC;">
+  <loader *ngIf="loadingcontrol==true"></loader>
+  <ion-row>
+     <ion-col>
+        <img style="width: 223px; height: 119px;margin-top: 58px;max-width: 83%;" src="assets/img/LogoMotion.png" />
+     </ion-col>
+  </ion-row>
+  <ion-row>
+     <ion-col>
+        <ion-list center>
+           <ion-item style="margin-top: 3%;height: 10px;border-bottom: 1px solid transparent;">
+              <ion-label>
+                 <ion-icon style="padding: 3px;" ios="ios-person" md="md-person"></ion-icon>
+                 Email
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="email">
+              </ion-input>
+           </ion-item>
+           <ion-item style="margin-top: 8%;height: 10px;border-bottom: 1px solid transparent;">
+              <ion-label>
+                 <ion-icon style="padding: 3px;" ios="ios-lock" md="md-lock"></ion-icon>
+                 Password
+              </ion-label>
+              <ion-input type="password" [(ngModel)]="pwHash"></ion-input>
+           </ion-item>
+        </ion-list>
+     </ion-col>
+  </ion-row>
+  <ion-row style="margin-top: -23px;">
+     <ion-col text-center>
+        <ion-label style="color:rgb(170,172,175);font-size:1.3rem;" (click)="navigatetoForgetPassword()"><i>Forgot Username /Password?</i></ion-label>
+     </ion-col>
+  </ion-row>
+  <ion-row align-items-center>
+     <ion-col>
+        <button class="btn" ion-button color="button" large block style="text-transform:capitalize" (click)="hope()">
+           <p style=" font-size: 1.4rem;font-weight: 300;">Login</p>
+        </button>
+     </ion-col>
+  </ion-row>
+  <ion-row align-items-center>
+     <ion-col>
+        <button class="btn" ion-button color="light" large block style="text-transform:capitalize;background-color:white  " (click)="navigateToCreateAccount()">
+           <p style="    font-size: 1.4rem;color: #2b2b2a;font-weight: 400;">Create Account</p>
+        </button>
+     </ion-col>
+  </ion-row>
+</ion-content>

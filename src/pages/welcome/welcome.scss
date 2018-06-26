@@ -1,0 +1,32 @@
+page-welcome {
+
+  .btn {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  .para {
+    font-size: 13px;
+    color: rgba(1,1,2,1);
+    text-align: center;
+    margin-bottom: -8px;
+  }
+
+  video {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    min-width: 50%;
+    min-height: 50%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .image-style{
+    height: 328px;
+    width: 253px;
+    margin-left: 11px;
+    margin-top: 11px; 
+  }
+}

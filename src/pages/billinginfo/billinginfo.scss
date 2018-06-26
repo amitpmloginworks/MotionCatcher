@@ -1,0 +1,27 @@
+page-billinginfo {
+
+  .item {
+    padding: 0px;
+  }
+
+  .para {
+    font-size: 1.2rem;
+    color: dimgray;
+    margin-left: 3px;
+  }
+
+  .toolbar-ios {
+    min-height: 60px;
+  }
+
+  .list-md .item-block .item-inner {
+    border-bottom: 1px solid transparent !important;
+  }
+
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: #424242;
+  }
+}

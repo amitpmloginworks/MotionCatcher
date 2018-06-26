@@ -1,0 +1,23 @@
+.ios, .md{
+  page-addscreens {
+  .item{
+  height:3.2em;
+  }
+  .btn{
+  }
+  .range{
+  bottom:2%;
+  width:100%;
+  background-color:#f3f3f3;
+  }
+  @media (min-width:2000px){
+  .item{
+  height:8em;
+  width:100em;
+  left:10em;
+  right:10em;
+  border-radius:1.2em;
+  }
+  }
+  }
+  }

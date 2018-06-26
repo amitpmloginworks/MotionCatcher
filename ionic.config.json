@@ -1,0 +1,8 @@
+{
+  "name": "motioncatcher",
+  "app_id": "5ee5cd50",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

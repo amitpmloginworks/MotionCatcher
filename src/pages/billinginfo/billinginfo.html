@@ -1,0 +1,81 @@
+<!--
+   Generated template for the BillinginfoPage page.
+   
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+   <ion-header>
+    <ion-navbar color="dark" >
+       <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+       </button>
+       <ion-buttons end>
+          <button ion-button (click)="navigateToDashboard()" >
+             <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-title  style=" margin-left: -20px;" text-center>Billing info</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content padding  style="background-color:#ECECEC" >
+    <loader *ngIf="loadingcontrol==true"></loader>
+    <ion-list style="padding-top:3%" >
+       <ion-item  no-lines class="item">
+          <ion-input  type="text" placeholder="Company"  [(ngModel)]="company" ></ion-input>
+       </ion-item>
+    </ion-list>
+    <ion-list  >
+       <ion-item  no-lines class="item">
+          <ion-input  type="text" placeholder="Address"  [(ngModel)]="address" ></ion-input>
+       </ion-item>
+    </ion-list>
+    <ion-list>
+       <ion-row>
+          <ion-col>
+             <ion-item  no-lines class="item">
+                <ion-input  type="text" placeholder="City"  [(ngModel)]="city" ></ion-input>
+             </ion-item>
+          </ion-col>
+          <ion-col>
+             <ion-item  no-lines class="item">
+                <ion-input  type="text" placeholder="Country"  [(ngModel)]="country" ></ion-input>
+             </ion-item>
+          </ion-col>
+          <ion-col>
+             <ion-item  no-lines class="item">
+                <ion-input style="    margin-left: -4px;" type="number" placeholder="Pcode"  [(ngModel)]="pinCode" ></ion-input>
+             </ion-item>
+          </ion-col>
+       </ion-row>
+    </ion-list>
+    <ion-list style="margin-top: -10px;">
+       <p class="para">&nbsp;&nbsp;Credit card info</p>
+       <ion-item  no-lines class="item">
+          <ion-input  type="text" placeholder="Card Number"  [(ngModel)]="cardNumber"></ion-input>
+       </ion-item>
+    </ion-list>
+    <ion-list>
+       <ion-row>
+          <ion-col>
+             <ion-item >
+                <ion-label style="margin-left: 5px;">MM/YY {{myDate}}</ion-label>
+                <ion-datetime [min]="minDate" [max]="maxDate" displayFormat="MM/YY" pickerFormat="MMMM YYYY" [(ngModel)]="myDate"></ion-datetime>
+                <ion-select>
+                   <ion-input type="date"  [(ngModel)]="date"  ></ion-input>
+                </ion-select>
+             </ion-item>
+          </ion-col>
+          <ion-col>
+             <ion-item  no-lines class="item">
+                <ion-input  type="text" placeholder="CVC"  [(ngModel)]="cvc"></ion-input>
+             </ion-item>
+          </ion-col>
+       </ion-row>
+       <p class="para">Scan your credit card to upload all the info www.card.io</p>
+       <ion-row text-center>
+          <ion-col>
+             <img style="width:25%" src="assets/icon/picture_click.png"  (click)="hope()" />
+          </ion-col>
+       </ion-row>
+    </ion-list>
+ </ion-content>

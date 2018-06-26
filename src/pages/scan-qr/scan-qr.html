@@ -1,0 +1,42 @@
+<!--
+   Generated template for the ScanQrPage page.
+   
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+   <ion-header>
+    <ion-navbar color="button">
+       <ion-buttons end>
+          <button ion-button (click)="navigateToAddScreens()">
+             <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-title style="margin-left: -26px;" text-center>Scan-Qr</ion-title>
+    </ion-navbar>
+ </ion-header>
+
+ <ion-content padding style="background-color:#f3f3f3;">
+    <ion-list *ngIf="scannedCode">
+    </ion-list>
+    <ion-list style="padding-top:20%">
+       <ion-row text-center>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col text-center>
+             <p style="font-size: 1.5rem;color: gray;margin-top: 64px;" text-center>Turn on the Motion Catcher screen and scan the QR code</p>
+          </ion-col>
+          <ion-col col-1>
+          </ion-col>
+       </ion-row>
+       <ion-row text-center>
+          <ion-col class="img">
+             <ion-icon><img style=" max-width: 78%;" src="assets/icon/qr1.png" /></ion-icon>
+          </ion-col>
+       </ion-row>
+       <ion-row text-center  (click)="scanCode()">
+          <ion-col>
+             <img class="capture-img" src="assets/img/picture_click.png" />
+          </ion-col>
+       </ion-row>
+    </ion-list>
+ </ion-content>

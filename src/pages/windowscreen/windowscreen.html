@@ -1,0 +1,327 @@
+<!--
+  Generated template for the WindowscreenPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header >
+  <ion-navbar color="button" >
+     <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+     <ion-title  style="margin-left:-47px;color:#41BAF5;" text-center>Window Screen</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <ion-list style="margin-left: -16px;">
+     <ion-item no-lines>
+        <p style="color:#35aff0;font-size:18px;    margin-left: 18px;
+           margin-top: 26px;">Select Unit</p>
+     </ion-item>
+     <button style="width: 100%;
+     background-color: white;
+     color: black;" ion-button *ngFor="let unitvalues of unitdetails;let i=index" (click)="tapunitid(i,unitvalues.unitId)"  > 
+     <ion-label >Screen:{{unitvalues.unitId}}-{{unitvalues.nickname}}</ion-label>
+     </button>
+     <div style="display: block;
+        width: 100%;
+        border-top: 2px solid #41bacf;
+        margin-top: 63px;
+        height: 28px;
+        margin-left: 16px;">
+        <div style="    display: inline-block;
+           width: 30%;
+           height: 24px;">
+        </div>
+        <div style="    display: inline-block;
+           width: 30%;
+           height: 24px;    TEXT-ALIGN: CENTER;">
+           <p>{{numberofads}}Ads</p>
+        </div>
+        <div style="    display: inline-block;
+           width: 30%;
+           height: 24px;">
+        </div>
+     </div>
+  </ion-list>
+  <ion-row text-center style="background-color:#777777;">
+     <ion-col>
+        <ion-icon>
+           <img style="    width: 45%;
+              margin-top: 8px;" src="assets/img/dashboard/add venue.png " (click)='navigateToAddVenue()' />
+        </ion-icon>
+     </ion-col>
+     <ion-col>
+        <ion-icon>
+           <img style="    width: 32%;
+              margin-top: 8px;" src="assets/img/dashboard/add Screen.png " (click)='navigateToAddScreens()' />
+        </ion-icon>
+     </ion-col>
+     <ion-col>
+        <ion-icon>
+           <img style="    width: 49%;
+              margin-top: 6px;" src="assets/img/dashboard/add ADV.png " (click)='navigateToCreateAD()' />
+        </ion-icon>
+     </ion-col>
+  </ion-row>
+  <div style="height: 25px;background-color:#4D4D4F;display:block;width:100%">
+     <div style="display:inline-block;width:50%;height: 25px;margin-top: -9px;">
+        <ion-item style="background-color: transparent;" no-lines > 
+           <ion-datetime  placeholder="Choose Day" displayFormat="MM/DD/YYYY"  [(ngModel)]="date" ></ion-datetime>
+        </ion-item>
+     </div>
+     <div style="display:inline-block;width:50%;height: 25px;float: right;margin-top: -9px">
+     </div>
+  </div>
+  <ion-list>
+     <ion-item style="background-color:whitesmoke"   >
+        <p style="    color: #35aff0;" (click)="statsdetail()" >Screen Performance</p>
+     </ion-item>
+  </ion-list>
+  <ion-card  (click)="stackedbar()" >
+     <ion-card-header>
+        <table  style="font-size: 10px;">
+           <tr>
+              <th>
+                 <p style="color: #35aff0">All</p>
+              </th>
+              <th></th>
+              <th style="color:#ED906B" >
+                 <div style="     height: 10px;
+                    width: 10px;
+                    border: 3px solid #ED906B;
+                    margin-bottom: -12px;
+                    margin-left: 22px;
+                    border-radius: 12px;
+                    margin-top: 10px;" ></div>
+                 <p style="color: #ED906B;
+                    font-size: 11px;
+                    margin-left: 37px;">Impressions</p>
+              </th>
+              <th>
+                 <div style="    height: 10px;
+                    width: 10px;
+                    background-color: #E5BED8;
+                    margin-top: 8px;" ></div>
+                 <p style="color: #E5BED8;
+                    font-size: 11px;
+                    margin-left: 14px;
+                    margin-top: -11px;" >Females</p>
+              </th>
+              <th>
+                 <div style="height: 10px;
+                    width: 10px;
+                    background-color: #C0E2F7;
+                    margin-top: 9px;" ></div>
+                 <p style= "color: #C0E2F7;
+                    font-size: 11px;
+                    margin-left: 15px;
+                    margin-top: -12px;" >Males</p>
+              </th>
+           </tr>
+        </table>
+     </ion-card-header>
+     <ion-card-content>
+        <canvas #lineCanvas></canvas>
+     </ion-card-content>
+  </ion-card>
+  <div style="display:block;width:100%" >
+     <ion-card style=" float:left;background-color: #F3F2F3;    width: 44%;display:inline-block;    height: 146px;" >
+        <ion-card-header style="color:#5BABE1" (click)="tapdatelist()">
+           Gender
+        </ion-card-header>
+        <ion-card-content>
+           <canvas  style="display: block;
+              width: 162px !important;
+              height: 82px !important;
+              margin-left: -57px !important;
+              margin-top: -21px !important; "      #doughnutCanvas></canvas>
+        </ion-card-content>
+        <p style="    margin-left: 79px;
+           margin-top: -90px;
+           font-size: 19px;
+           font-weight: 800;
+           color: #2DB0ED;"  *ngIf="windowactive==true" >
+           {{male2}}%
+        </p>
+        <p style="margin-left: 76px;
+           font-size: 19px;
+           font-weight: 800;
+           color: #e87287;"  *ngIf="windowactive==true" >
+           {{female2}}%
+        </p>
+        <p style="    margin-left: 78px;
+           margin-top: -2px;
+           font-weight: 800;"  *ngIf="windowactive==true" >
+           {{others2}}%
+        </p>
+        <img style="    width: 15%;
+           z-index: 1;
+           margin-top: -79px;
+           margin-left: 112px;" src="assets/img/statschart/006-people-6.png"  *ngIf="windowactive==true" >
+        <img style="    width: 28px;
+           margin-left: 108px;
+           margin-top: 6px;" src="assets/img/statschart/013-people-2.png"  *ngIf="windowactive==true" >
+        <img style="width: 26px;
+           margin-top: 10px;
+           margin-left: 104px;" src="assets/img/statschart/015-people.png"  *ngIf="windowactive==true" >
+     </ion-card>
+     <ion-card style="    height: 147px;
+        float: left;
+        background-color: #F3F2F3;
+        width: 43%;
+        display: inline-block;
+        margin-top: 9px;" 
+        (click)="barchartanalyze1()" >
+        <ion-card-header (click)="tapdatelist()" style="color:#5BABE1">
+           Age
+        </ion-card-header>
+        <ion-card-content>
+           <canvas  style="display: block;
+              width: 162px !important;
+              height: 82px !important;
+              margin-left: -59px !important;
+              margin-top: -21px !important; "      #doughnutCanvas1></canvas>
+        </ion-card-content>
+        <p style="    margin-left: 76px;
+           margin-top: -116px;
+           font-size: 19px;
+           font-weight: 800;
+           color: #84CAC8;"   *ngIf="windowactive==true" >
+           {{childern1}}
+        </p>
+        <p style="    margin-left: 76px;
+           font-size: 19px;
+           font-weight: 800;
+           color: #7FBD72;"  *ngIf="windowactive==true" >
+           {{youngadults1}}
+        </p>
+        <p style="    margin-left: 76px;
+           margin-top: -2px;
+           font-weight: 800;
+           color:#EDD33A"  *ngIf="windowactive==true"  >
+           {{adults1}}
+        </p>
+        <p style="    margin-left: 76px;
+           font-size: 19px;
+           font-weight: 800;
+           color: #F3AC2F;"  *ngIf="windowactive==true" >
+           {{seniors1}}
+        </p>
+        <p style="    margin-left: 76px;
+           margin-top: -2px;
+           font-weight: 800;color:#4D4D4C"  *ngIf="windowactive==true" >
+           {{others11}}
+        </p>
+        <img style="    width: 17px;
+           z-index: 1;
+           margin-top: -129px;
+           margin-left: 116px;" src="assets/img/statschart/007-people-5.png"  *ngIf="windowactive==true" >
+        <img style="width: 17px;
+           margin-left: 116px;
+           margin-top: 10px;" src="assets/img/statschart/006-people-6.png"  *ngIf="windowactive==true" >
+        <img style="    width: 17px;
+           margin-top: 10px;
+           margin-left: 116px;" src="assets/img/statschart/014-people-1.png"  *ngIf="windowactive==true"  >
+        <img style="    width: 17px;
+           margin-left: 116px;
+           margin-top: 9px;" src="assets/img/statschart/013-people-2.png"   *ngIf="windowactive==true" >
+        <img style="    width: 20px;
+           margin-top: 10px;
+           margin-left: 110px;" src="assets/img/statschart/001-medical.png"  *ngIf="windowactive==true" >
+     </ion-card>
+  </div>
+  <ion-card>
+     <ion-card-header (click)="barchartanalyze()" >
+        Per Hour Impression
+     </ion-card-header>
+     <ion-card-content>
+        <canvas #barCanvas></canvas>
+     </ion-card-content>
+     <div style="width:100%;height:20px;height:60px;margin-top: -20px;display:block" >
+        <div class="graph-box">
+           <div class="graph-box-inner yellow" >
+           </div>
+           <p class="text-graph" >Morning</p>
+           <p style="font-size:1.1rem" >(6am-12pm)</p>
+        </div>
+        <div class="graph-box">
+           <div class="graph-box-inner orange" >
+           </div>
+           <p class="text-graph">Midday</p>
+           <p style="font-size:1.1rem">(12pm-2pm)</p>
+        </div>
+        <div class="graph-box">
+           <div class="graph-box-inner green" >
+           </div>
+           <p class="text-graph">Afternoon</p>
+           <p style="font-size:1.1rem">(2pm-6pm)</p>
+        </div>
+        <div class="graph-box">
+           <div class="graph-box-inner magenta" >
+           </div>
+           <p class="text-graph">Evening</p>
+           <p style="font-size:1.1rem">(6pm-10pm)</p>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+     </div>
+  </ion-card>
+  <ion-list>
+     <ion-item style="background-color:whitesmoke"   >
+        <p style="    color: #35aff0;" (click)="testp()"  >Ads Performance</p>
+     </ion-item>
+  </ion-list>
+  <table  style="font-size: 10px;" id="t01">
+     <tr>
+        <th>ADV</th>
+        <th>ATTENTION</th>
+        <th>DURATION</th>
+        <th>Impression</th>
+        <th>Emotion</th>
+     </tr>
+     <tr>
+        <td style="    font-size: 8px;" >{{adname}}</td>
+        <td style="border: 2px solid #dde0e2;    color: #2aafe6;" >{{attention}}</td>
+        <td style="border: 2px solid #dde0e2;    color: #2aafe6;" >{{duration}}</td>
+        <td style="border: 2px solid #dde0e2;    color: #2aafe6;" >{{impressions}}</td>
+        <td *ngIf="facediv==false">
+           <img *ngIf="faceon==true" style=" width: 18px;
+              margin-left: 10px;" src="assets/img/002-people.png" >
+           <img  *ngIf="faceon==false" style=" width: 18px;
+              margin-left: 10px;"
+              src="assets/img/001-muted.png">
+        </td>
+     </tr>
+  </table>
+  <ion-list style="margin-top: 10px;" >
+     <div style="background-color:whitesmoke;width:100%;display:block;    text-align: center;"   >
+        <div style="width:31%;display:inline-block;float:left;    background-color: whitesmoke;">
+           <p style="    color: black;" (click)="campaigndetails()"  >Adv</p>
+        </div>
+        <div style="width:31%;display:inline-block;float:left;    background-color: whitesmoke;">
+           <p style="    color:black;" (click)="campaigndetails()"  >Sechdule</p>
+        </div>
+        <div style="width:38%;display:inline-block;float:left;    background-color: whitesmoke;">
+           <p style="    color:black;" (click)="campaigndetails()"  >Smart</p>
+        </div>
+     </div>
+  </ion-list>
+  <table  style="width:100%;    border: 2px solid #d8d6d6; border-collapse: collapse;">
+     <tr  *ngFor="let value of schdeulingdata;let i=index" >
+        <td   style="     border: 2px solid #d8d6d6;color: #2aafe6;">{{value.brand}}</td>
+        <td (click)="taptoschedule(i)" style="     border: 2px solid #d8d6d6;    text-align: center;
+           color: #afafaf;" >From{{value.FromTime}} To {{value.ToTime}}</td>
+        <td style="     border: 2px solid #d8d6d6;" ></td>
+        <td (click)="taptolibrary(value.adId)" style="     border: 2px solid #d8d6d6;">
+           <img style="width: 19px;" src="assets/img/statschart/goodware.png">
+        </td>
+     </tr>
+  </table>
+</ion-content>
+     

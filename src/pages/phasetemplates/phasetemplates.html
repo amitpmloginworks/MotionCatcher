@@ -1,0 +1,62 @@
+<!--
+   Generated template for the PhasetemplatesPage page.
+   
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+   <ion-header>
+    <ion-navbar color="button">
+       <ion-buttons left>
+          <button ion-button (click)="navigateToAdTemplate()">
+             <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-buttons end>
+          <button ion-button (click)="navnavigateToNewPhase()">
+             <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-title  style=" margin-left: -11px;"  text-center>Phases Templates</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content style="background-color:whitesmoke">
+    <div style="display:block;width:100%;float:left;margin-top: 8px;" >
+       <div id="box1" class="ad-template" (click)="navigateToNewPhase(1)">
+          <div class="ad-template-box">
+             <img  style="    height: 103px;
+                width: 100%;" src="assets/img/square.png" />
+          </div>
+          <div class="ad-template-phasestrip">
+             <p class="adtemplate-text">NEW PHASE</p>
+          </div>
+          <div class="ad-template-strip">
+             <div class="ad-template-strip1">
+             </div>
+             <div class="ad-template-strip2">
+             </div>
+          </div>
+       </div>
+       <div (click)="navigatetolibrary(j)" id="box2" class="ad-template" *ngFor="let value of phasetemplate;let j=index">
+       <div class="ad-template-box">
+          <div class="ad-templateboxbackground"></div>
+       </div>
+       <div class="ad-template-phasestrip">
+          <p class="adtemplate-text">{{value.name}}</p>
+       </div>
+       <div class="ad-template-strip">
+          <div *ngFor="let values of value.flags;" style="width:48%;float:left;height: 33px;    text-align: right;">
+             <div style="height: 19px;text-align: left;margin-left: 10px;">
+                <img style="height: 20px;" src="assets/img/AdTemplate/BLUEPHASE/001-medical.png" />
+             </div>
+             <div style="height:14px;">
+                <p style="margin-top: 1px; text-align: left;margin-left: 12px; ">{{values.attentionSec}}s</p>
+             </div>
+          </div>
+          <div *ngFor="let values of value.flags;let i=index" style="width: 18%;float: left;height: 35px;text-align: left;    margin-left: -1px;padding:2px">
+             <img *ngIf="values.male!=null" style="margin-left: -1px;" [src]="values.male" >
+             <img *ngIf="values.smile!=null" style="margin-left: -1px;" [src]="values.smile" >
+          </div>
+       </div>
+    </div>
+    </div>
+ </ion-content>

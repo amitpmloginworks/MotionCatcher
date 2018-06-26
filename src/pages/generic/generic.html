@@ -1,0 +1,362 @@
+<!--
+   Generated template for the GenericPage page.
+   
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+   <ion-header>
+    <ion-navbar color="button">
+       <ion-buttons left >
+          <button ion-button (click)="navigateToLibrary()">
+             <ion-icon name="ios-arrow-back-outline"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-buttons end>
+          <button ion-button (click)="gettext()">
+             <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+          </button>
+       </ion-buttons>
+       <ion-title style="text-align:center;" text-center>Generic</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content padding style="background-color:#EDEEEE "  >
+    <div class="htmlbox" *ngIf="htmlactive==true">
+       <textarea id="myTextarea" rows="20" cols="40">
+  <html>
+  <body>
+   <h1>This is a Heading</h1>
+   <p>This is a paragraph.</p>
+ </body>
+ </html> 
+ </textarea>
+       <div style="text-align: center;">
+          <button small ion-button color="button" (click)="previewhtml()">Preview</button>
+          <button small ion-button color="button" (click)="savecode()">Save Code</button>
+       </div>
+    </div>
+    <ion-card class="videouploadbox" *ngIf="videoactive==true">
+       <progressbar [progress]="loadProgress"></progressbar>
+       <!--  <video class="videostylebox" [src]="videodata" controls></video> -->
+       <video class="videostylebox" [src]="videodata" controls></video>
+       <ion-card-title style="text-align: center;">
+          <button ion-button color="button" small (click)="UploadVideoFromGallery()">Choose</button>
+          <button ion-button color="button" small (click)="uploadvideosecond()">Upload</button>
+       </ion-card-title>
+    </ion-card>
+    <div id="imageeditbox" *ngIf="Imagupload1==true" style="height: 210px;
+       flex:1 ;
+       flex-direction:column;
+       position: relative;
+       top: 49px;
+       width: 90%;
+       " absolutedrag startLeft="10" startTop="50">
+       <div style="flex:1;height:37px ">
+          <ion-row>
+             <ion-col>
+                <img style="height:34px;margin-top:-8px" src="assets/img/editorimage/move.png" (click)="moveonimage()">
+             </ion-col>
+             <ion-col style="text-align: end;">
+                <img style="height:34px;margin-top:-8px;" src="assets/img/editorimage/rotate.png" (click)="rotateon()">
+             </ion-col>
+          </ion-row>
+       </div>
+       <div id="textrotate" style="padding: 5px;
+          flex: 2;
+          border-style: dashed;
+          border-color: #ACB0B3;
+          border-width: 2.5px;
+          height: 189px; ">
+          <img id="imagestyle" *ngIf="imgactive==true" class="imagebox" [src]="imgsrc" />
+       </div>
+       <div style="flex:1;height:59px ;margin-top: 4px;">
+          <ion-row>
+             <ion-col>
+                <img *ngIf="imgactive==true" style="height:34px" src="assets/img/editorimage/recycle-bin.png" (click)="deleteimg()">
+                <img *ngIf="imgactive==false" style="height:34px" src="assets/img/004-circle.png" (click)="ImageUpload()">
+             </ion-col>
+             <ion-col style="text-align: end;">
+                <img style="height:34px;" src="assets/img/editorimage/001-hand.png" (click)="scaleimage()">
+             </ion-col>
+          </ion-row>
+       </div>
+       <progressbar [progress]="loadProgress"></progressbar>
+       <button ion-button full style=" background-color: white;
+          color: #488aff;" (click)="uploadImagesecond()">Save</button>
+    </div>
+    <div *ngIf="MOVEON==true" absolutedrag startLeft="10" startTop="80" style="
+       height: 210px;
+       flex:1 ;
+       flex-direction:column;
+       position: relative;
+       top: 93px;
+       left: 26px;
+       width: 86%;" class="texts-texts" >
+       <div style="flex:1;height:37px ">
+          <ion-row>
+             <ion-col >
+                <img style="height:34px;margin-top:-8px" src="assets/img/editorimage/move.png" (click)="moveon()">
+             </ion-col>
+             <ion-col style="text-align: end;" >
+                <img style="height:34px;margin-top:-8px" src="assets/img/editorimage/rotate.png" (click)="rotateon()">
+             </ion-col>
+          </ion-row>
+       </div>
+       <div id="a1" style=" background-color:#ffff; ">
+          <div  [@fadeIn]="loginState" id="textrotate" style=" padding: 8px;flex:2;border-style:dashed;border-color:#ACB0B3; border-width: 2.5px;height:96px; " >
+          <textarea  style="border: 0px;
+             height: 100%;
+             width: 100%;
+             " rows="4.2" cols="32" type="text" id="textcolor"></textarea>
+       </div>
+    </div>
+    <div style="flex:1;height:59px ;margin-top: 4px;">
+       <ion-row>
+          <ion-col >
+             <img style="height:34px" src="assets/img/editorimage/recycle-bin.png" (click)="delete()">
+          </ion-col>
+          <ion-col style="text-align: end;" >
+             <img style="height:34px;" src="assets/img/editorimage/001-hand.png" (click)="scale()">
+          </ion-col>
+       </ion-row>
+    </div>
+    </div>
+    <ion-badge item-end *ngIf="scaleon==true" class="badge-box">{{saturation}}</ion-badge>
+    <ion-range style="position: relative;
+    bottom: -266px;" min="1" max="10" [(ngModel)]="saturation" color="button" *ngIf="scaleon==true" (ionChange)="changescale()">
+    <ion-label range-left>1</ion-label>
+    <ion-label range-right>10</ion-label>
+    </ion-range>
+    <ion-card style=" width: 116%;
+       margin-left: -20px;
+       position: absolute;
+       top: -26px;" *ngIf="colorboard==true">
+       <ion-card-content>
+          <ion-row>
+             <ion-col width-10 (click)="func(0)">
+                <div style="background-color:#6F983A;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(1)">
+                <div style="background-color:#0F8EFC;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(2)">
+                <div style="background-color:#2D3192;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(3)">
+                <div style="background-color:#015B7E;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(4)">
+                <div style="background-color:#1B1464;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(5)">
+                <div style="background-color:#003664;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(6)">
+                <div style="background-color:#AED700;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(7)">
+                <div style="background-color:#7DA7D9;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(8)">
+                <div style="background-color:#015B7E;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(9)">
+                <div style="background-color:#A1410E;height:20px;border-radius:15px"></div>
+             </ion-col>
+          </ion-row>
+          <ion-row>
+             <ion-col width-10 (click)="func(10)">
+                <div style="background-color:#015B7E;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(11)">
+                <div style="background-color:#A1410E;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(12)">
+                <div style="background-color:#9DA2A7;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(13)">
+                <div style="background-color:#F36523;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(14)">
+                <div style="background-color:#FCAF5D;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(15)">
+                <div style="background-color:#FDC78B;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(16)">
+                <div style="background-color:#FEF89A;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(17)">
+                <div style="background-color:#817B00;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(18)">
+                <div style="background-color:#F79578;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(19)">
+                <div style="background-color:#FEF200;height:20px;border-radius:15px"></div>
+             </ion-col>
+          </ion-row>
+          <ion-row>
+             <ion-col width-10 (click)="func(20)">
+                <div style="background-color:#015B7E;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(21)">
+                <div style="background-color:#7B2E00;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(22)">
+                <div style="background-color:#000000;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(23)">
+                <div style="background-color:#111111;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(24)">
+                <div style="background-color:#FCAF5D;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(25)">
+                <div style="background-color:#005826;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(26)">
+                <div style="background-color:#FEF89A;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(27)">
+                <div style="background-color:#007237;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(28)">
+                <div style="background-color:#F79578;height:20px;border-radius:15px"></div>
+             </ion-col>
+             <ion-col width-10 (click)="func(29)">
+                <div style="background-color:#00A650;height:20px;border-radius:15px"></div>
+             </ion-col>
+          </ion-row>
+       </ion-card-content>
+    </ion-card>
+    <ion-footer class="gen-foot" id="footeractive"  [@flyInBottomFast]="formState">
+    <ion-row>
+       <ion-row style="width:100%;border-bottom:1px solid #aaafb2" *ngIf="imagestyleactive1==true">
+          <ion-col style="width:10%;height: 36px;padding:4px;margin-left: 12px;
+             " width-10 (click)="widthimage()">
+             <p>w:60</p>
+          </ion-col>
+          <ion-col style="height: 36px;
+             margin-left: -11px;" (click)="heightimage()">
+             <p>h:60</p>
+          </ion-col>
+          <ion-col style="height: 36px;margin-top: 8px;" width-20 (click)="imagebottom()">
+             <img style="margin-top: -7px;    height: 31px;" src="assets/img/my-icons-collection/png/004-interface.png">
+          </ion-col>
+          <ion-col style="height: 36px; " width-20 (click)="imageleft()">
+             <img style="    height: 31px;margin-left: -9px !important;" src="assets/img/my-icons-collection/png/003-interface-1.png">
+          </ion-col>
+          <ion-col style="height: 36px;    " width-20 (click)="imageforward()">
+             <img style="    height: 31px;    margin-left: -15px;" src="assets/img/my-icons-collection/png/001-bottom-1.png">
+          </ion-col>
+          <ion-col style="    height: 27px;
+             margin-left: -7px;" width-15 (click)="imagebackward()">
+             <img style="    height: 22px;
+                margin-left: -10px;" src="assets/img/my-icons-collection/png/002-bottom.png">
+          </ion-col>
+       </ion-row>
+       <ion-row style="width:100%;border-bottom:1px solid #aaafb2" *ngIf="textstyleactive1==true" [@flyInBottomFast]="formState">
+       <ion-col style="width:10%;height: 36px;padding:4px;margin-left: 12px;
+          " width-10 (click)="positiontop()">
+          <p>x:{{textpositionx}}</p>
+       </ion-col>
+       <ion-col style="height: 36px;
+          margin-left: -11px;" (click)="positionbottom()">
+          <p>y:{{textpositiony}}</p>
+       </ion-col>
+       <ion-col style="height: 36px;margin-top: 8px;" width-20 (click)="textbottom()">
+          <img style="margin-top: -7px;    height: 31px;" src="assets/img/my-icons-collection/png/004-interface.png">
+       </ion-col>
+       <ion-col style="height: 36px; " width-20 (click)="textrotateleft()">
+          <img style="    height: 31px;margin-left: -9px !important;" src="assets/img/my-icons-collection/png/003-interface-1.png">
+       </ion-col>
+       <ion-col style="height: 36px;    " width-20 (click)="textforward()">
+          <img style="    height: 31px;    margin-left: -15px;" src="assets/img/my-icons-collection/png/001-bottom-1.png">
+       </ion-col>
+       <ion-col style="    height: 27px;
+          margin-left: -7px;" width-15 (click)="textbackward()">
+          <img style="    height: 22px;
+             margin-left: -10px;" src="assets/img/my-icons-collection/png/002-bottom.png">
+       </ion-col>
+    </ion-row>
+    <ion-row style="width:100%;border-bottom:1px solid #aaafb2" *ngIf="textstyleactive==true">
+       <ion-col style="width:10%;height: 36px;padding:4px; " width-10>
+          <div id="colorbox" style="background-color:#00AEEF;
+             height:30px;
+             width:31px;" (click)="colortap()"></div>
+       </ion-col>
+       <ion-col style="height: 36px;
+          margin-left: -11px;">
+          <div style="border:1px solid  black;height: 21px;margin-left: 14px;width: 60px;" ion-button clear (click)="openFontStyle()">
+             <ion-label style="text-overflow: ellipsis;">  {{fontfamilytext}}</ion-label>
+          </div>
+       </ion-col>
+       <ion-col style="height: 36px;margin-top: 8px;" width-20 (click)="textsmall()">
+          <img style="margin-top: -7px;height: 31px;" src="assets/img/textsmall.png">
+       </ion-col>
+       <ion-col>
+          <img style="height: 26px;margin-left: -9px;" src="assets/img/editorimage/textunderline.png" (click)="headertap()">
+       </ion-col>
+       <ion-col style="height: 36px; " width-20 (click)="textoblique()">
+          <img style="height: 22px;
+             margin-left: -21px !important;" src="assets/img/textcursive.png">
+       </ion-col>
+       <ion-col style="height: 36px;    " width-20 (click)="textbold()">
+          <img style="    height: 21px;
+             margin-left: -31px;" src="assets/img/textbold.png">
+       </ion-col>
+       <ion-col style="    height: 27px;
+          margin-left: -7px;" width-15 (click)="textleft()">
+          <img style="height: 21px;
+             margin-left: -23px;" src="assets/img/textright.png">
+       </ion-col>
+       <ion-col style="    height: 27px;
+          margin-left: -7px;" width-15 (click)="textcenter()">
+          <img style="    height: 21px;
+             margin-left: -22px;" src="assets/img/textcenter.png">
+       </ion-col>
+       <ion-col style="    height: 27px;
+          margin-left: -7px;" width-15 (click)="textright()">
+          <img style="    height: 21px;
+             margin-left: -19px;" src="assets/img/textleft.png">
+       </ion-col>
+    </ion-row>
+    <ion-row style="width:100%;padding: 6px;">
+       <ion-col (click)="TextEdit()">
+          <div style="display:inline-block;height: 69px;">
+             <img style="border: 0 none;
+                height: 40px;
+                max-width: 100%;
+                " src="assets/img/editorimage/textbold.png">
+          </div>
+       </ion-col>
+       <ion-col (click)="ImageUpload()">
+          <div style="display:inline-block;height: 69px;">
+             <img style="
+                border: 0 none;
+                height: 41px;
+                max-width: 100%;
+                margin-left: -10px;
+                " src="assets/img/editorimage/image.png">
+          </div>
+       </ion-col>
+       <ion-col>
+          <div style="display:inline-block;height: 69px;">
+             <img style="    border: 0 none;
+                height: 40px;
+                max-width: 100%;
+                " src="assets/img/editorimage/video-camera.png" (click)="videoupload()">
+          </div>
+       </ion-col>
+       <ion-col>
+          <div style="display:inline-block;height: 69px;">
+             <img style="    border: 0 none;
+                height: 40px;
+                max-width: 100%;
+                " src="assets/img/editorimage/html.png" (click)="htmlcode()">
+          </div>
+       </ion-col>
+    </ion-row>
+    </ion-row>
+    </ion-footer>
+ </ion-content>

@@ -1,0 +1,28 @@
+page-dashboard {
+  .ion-icon {
+    line-height: 2;
+    color: #ffffff;
+  }
+
+  .img {
+    width: 20%
+  }
+
+  @media only screen and (max-width: 500px) {
+    .img {
+      width: 43%;
+      margin-top: 130px;
+    }
+  }
+
+  .bottomline {
+    margin-top: -12px;
+  }
+
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: #424242;
+  }
+}

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="button">
+     <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+     <ion-title style="margin-left: -46px;" text-center>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list text-center
+     style="background-color: #EDEEEE;
+     padding-top: 4%;
+     margin-top: 2px;
+     height: 78%;" >
+     <img class="img" src="assets/img/dashboard/Did_logo.png" />
+  </ion-list>
+  <div style="position: absolute;
+     bottom: 0px;width: 100%;">
+     <div class="bottomline">
+        <ion-row text-center>
+           <ion-col>
+              {{countries}} Nations
+           </ion-col>
+           <ion-col>
+              {{cities}} Cities
+           </ion-col>
+           <ion-col>
+              {{venues}} Venues
+           </ion-col>
+        </ion-row>
+     </div>
+     <ion-row text-center style="background-color:#777777;">
+        <ion-col>
+           <ion-icon>
+              <img style="    width: 45%;
+                 margin-top: 8px;" src="assets/img/dashboard/add venue.png " (click)='navigateToAddVenue()' />
+           </ion-icon>
+        </ion-col>
+        <ion-col>
+           <ion-icon>
+              <img style="    width: 32%;
+                 margin-top: 8px;" src="assets/img/dashboard/add Screen.png " (click)='navigateToAddScreens()' />
+           </ion-icon>
+        </ion-col>
+        <ion-col>
+           <ion-icon>
+              <img style="    width: 49%;
+                 margin-top: 6px;" src="assets/img/dashboard/add ADV.png " (click)='navigateToCreateAD()' />
+           </ion-icon>
+        </ion-col>
+     </ion-row>
+     <div style="height: 23px;background-color:#4D4D4F;display:block;width:100%">
+        <div style="display:inline-block;width:50%;height: 25px;margin-top: -9px;">
+           <p style="display:inline-block;margin-left: 6px;color:#b5b4b4">Year</p>
+           <p style="display:inline-block;color:#EDEEEE">2016</p>
+           <ion-icon style="display:inline-block;color:#b5b4b4" md="md-arrow-dropdown"></ion-icon>
+        </div>
+        <div style="display:inline-block;width:50%;height: 25px;float: right;margin-top: -9px">
+           <ion-icon ios="ios-calendar" md="md-calendar" style="display:inline-block;color:#b5b4b4"></ion-icon>
+           <p style="display:inline-block;color:#EDEEEE">From:</p>
+           <p style="display:inline-block;color:#b5b4b4">01.01</p>
+           <p style="display:inline-block;color:#EDEEEE">to</p>
+           <p style="display:inline-block;color:#b5b4b4">31.12</p>
+        </div>
+     </div>
+  </div>
+</ion-content>

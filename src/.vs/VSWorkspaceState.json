@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\components",
+    "\\components\\progressbar",
+    "\\pages",
+    "\\pages\\generic",
+    "\\pages\\videoplayerad",
+    "\\pages\\your-ad",
+    "\\pages\\yourvideoad",
+    "\\providers"
+  ],
+  "SelectedNode": "\\pages\\generic\\generic.ts",
+  "PreviewInSolutionExplorer": true
+}

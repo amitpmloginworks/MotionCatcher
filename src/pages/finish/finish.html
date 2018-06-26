@@ -1,0 +1,33 @@
+<!--
+   Generated template for the FinishPage page.
+   
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+   <ion-header>
+    <ion-navbar color="dark">
+       <ion-title  style="margin-left: -46px;"c text-center>Finish</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content padding  style="background-color:#f3f3f3"  text-center>
+    <ion-list style="padding-top:40%">
+       <ion-label text-center class="para">CONGRATULATION</ion-label>
+       <ion-row>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col>
+             <p text-center text-wrap class="para1">A new screen has being added to your Venue.
+                <u (click)="addscreen()">Add</u> more screens or go the <u (click)="mainpage()">Main page</u> 
+             </p>
+          </ion-col>
+          <ion-col col-1>
+          </ion-col>
+       </ion-row>
+       <ion-row style="padding-top:25%">
+          <ion-range class="range" step="2" color="button" >
+             <ion-icon range-left><img style="height: 53px;" src="assets/icon/home.png" (click)="navigateToMenu()" /></ion-icon>
+             <ion-icon range-right><img style="height: 53px;" src="assets/icon/plus.png"/></ion-icon>
+          </ion-range>
+       </ion-row>
+    </ion-list>
+ </ion-content>
